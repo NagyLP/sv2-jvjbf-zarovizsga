@@ -87,7 +87,7 @@ Validálás:
 A kérésben beérkező adatokat a fenti feltételek alapján validáld le, és hiba esetén küldj vissza hibaüzenetet (a pontos
 hibaüzeneteket megtalálhatod a vonatkozó teszteseteknél), valamint 400-as hibakódot!
 
-Sikeres mentés esetén küldd vissza az elmentett iskola összes adatát (id-val és eredményekkel együtt), és 201-es
+Sikeres mentés esetén küldd vissza az elmentett iskola összes adatát (id-val és tanulókkal együtt), és 201-es
 kódot!
 
 ### Részpontok
