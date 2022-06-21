@@ -12,11 +12,11 @@ A vizsga végéig bárhányszor commitolhatsz.
 
 Csak a vizsga vége előtt 15 perccel push-olhatsz először, utána push-olhatsz a vizsga végéig bármennyiszer.
 
-Ha letelik az idő mindenképp pusholj, akkor is, ha nem vagy kész!
+Ha letelik az idő, mindenképp pusholj, akkor is, ha nem vagy kész!
 
 ## Alkalmazás
 
-Hozz létre egy alkalmazást,amivel iskolákat és tanulókat lehet adminisztrálni.
+Hozz létre egy alkalmazást, amivel iskolákat és tanulókat lehet adminisztrálni.
 
 ## Nem-funkcionális követelmények
 
@@ -78,7 +78,7 @@ docker run -d -e MYSQL_DATABASE=schooladministration -e MYSQL_USER=school -e MYS
 
 ### `POST /api/schools`
 
-A HTTP kérés törzsében egy iskola nevét és címét (egy cím minden adatát külön) várjuk. Az azonosítót az adbázis osztja ki, míg a tanulók lista
+A HTTP kérés törzsében egy iskola nevét és címét (egy cím minden adatát külön) várjuk. Az azonosítót az adatbázis osztja ki, míg a tanulók lista
 kezdetben üres.<br>
 Validálás:
 
@@ -104,18 +104,18 @@ Az iskola azonosítója az URL-ben érkezik.
 A HTTP kérés törzse:
 
 - név (nem lehet üres)
-- születési dátum(Csak múltbéli dátumot tartalmazhat)
+- születési dátum (csak múltbéli dátumot tartalmazhat)
 
 A kérésben beérkező adatokat a fenti feltételek alapján validáld le, és hiba esetén küldj vissza hibaüzenetet
 (a pontos hibaüzeneteket megtalálhatod a vonatkozó teszteseteknél), valamint 400-as hibakódot!
 
-Ha nem megfelelő az iskola azonosítója 404-es státuszkóddal térj vissza és megfelelő hibaüzenettel.
+Ha nem megfelelő az iskola azonosítója, 404-es státuszkóddal térj vissza és megfelelő hibaüzenettel.
 
 A SchoolAgeStatus a tanuló korától függ. Minden tanuló 16 éves koráig tanköteles, ez azt jelenti, hogyha a tanuló betöltötte a 16. életévét, akkor
 a nem tanköteles státuszba kerül. Két dátum közötti különbséget a `ChronoUnit.YEARS.between(date1, date2)` metódussal tudsz számolni,
-ami `long`-al tér vissza.
+ami `long`-gal tér vissza.
 
-Sikeres mentés esetén küldd vissza az iskola adatait  (id-val és tanulókkal együtt) és 201-es státuszkódot!
+Sikeres mentés esetén küldd vissza az iskola adatait (id-val és tanulókkal együtt) és 201-es státuszkódot!
 
 ### Részpontok
 
@@ -145,12 +145,13 @@ található iskolákat kérdezzük le.
 
 ### `PUT /api/schools/{id}/students/{stdId}`
 
-Egy tanulót ki lehet rúgni egy iskolából. Ekkor adatai az adatbázisban maradnak csak nem lesz hozzá iskola rendelve.
+Egy tanulót ki lehet rúgni egy iskolából. Ekkor adatai az adatbázisban maradnak, csak nem lesz hozzá iskola rendelve.
 
-Ha az iskola vagy a tanuló a kérés alapján nem található küldjünk vissza 404-es hibakódot. Figyeljünk arra,
-hogy a lekért tanulónak az iskola tanulói között kell szerepelnie, ha nem így lenne akkor is 404 hibakód megy vissza.
+Ha az iskola vagy a tanuló a kérés alapján nem található, küldjünk vissza 404-es hibakódot. Figyeljünk arra,
+hogy a lekért tanulónak az iskola tanulói között kell szerepelnie! Ha nem így lenne, akkor is 404 hibakód megy vissza.
 
 Sikeres frissítés után küldjük vissza az iskola összes adatát, természetesen a kirúgott tanuló már ne szerepeljen a tanulók listájában!
+
 ### Részpontok
 
 - A beérkező HTTP kérést az alkalmazás kezeli - 3 pont
